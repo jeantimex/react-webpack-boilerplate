@@ -1,0 +1,28 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [
+    "babel",
+    "import",
+    "react"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "ecmaFeatures": {
+    "modules": true,
+    "jsx": true
+  },
+  "rules": {
+    "indent": [2, 4, {"SwitchCase": 1}],
+    "react/jsx-curly-spacing": 0,
+    "react/jsx-indent-props": [2, 4],
+    "react/jsx-indent": [2, 4],
+    "jsx-quotes": [2, 'prefer-single'],
+    "max-len": [2, 120],
+    "no-underscore-dangle": ['error', { 'allow': ['__Rewire__', '__ResetDependency__'] }]
+  }
+}
