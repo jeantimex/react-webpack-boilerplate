@@ -10,13 +10,13 @@
 
 This boilerplate helps you quickly setup React project, it includes the following features:
 
-- React
-- Webpack and Webpack dev server
-- ES6 with Babel
+- [React](https://facebook.github.io/react/)
+- [Webpack](https://webpack.github.io/) and Webpack dev server
+- ES6 with [Babel](https://babeljs.io/)
 - Sass loader
-- Karma + mocha
-- Code coverage report
-- Test with Enzyme and Sinon
+- [Karma](https://karma-runner.github.io/1.0/index.html) + [Mocha](https://mochajs.org/)
+- Coverage report [isparta](https://github.com/douglasduteil/isparta)
+- Test with [Enzyme](https://github.com/airbnb/enzyme) and [Sinon](http://sinonjs.org/)
 
 #### How to use
 ```
