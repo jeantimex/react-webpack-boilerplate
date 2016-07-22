@@ -6,6 +6,8 @@
 [![Dependency Status](https://david-dm.org/jeantimex/react-webpack-boilerplate.svg)](https://david-dm.org/jeantimex/react-webpack-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/jeantimex/react-webpack-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/jeantimex/react-webpack-boilerplate?branch=master)
 
+![React Webpack](./react-webpack-boilerplate.png)
+
 This boilerplate helps you quickly setup React project, it includes the following features:
 
 - React
