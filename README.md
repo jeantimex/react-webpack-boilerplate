@@ -4,7 +4,7 @@
 [![React Version](https://img.shields.io/badge/react-v15.1.x-blue.svg)](https://img.shields.io/badge/react-v15.1.x-blue.svg)
 [![Build Status](https://travis-ci.org/jeantimex/react-webpack-boilerplate.svg?branch=master)](https://travis-ci.org/jeantimex/react-webpack-boilerplate)
 [![Dependency Status](https://david-dm.org/jeantimex/react-webpack-boilerplate.svg)](https://david-dm.org/jeantimex/react-webpack-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/jeantimex/react-webpack-boilerplate/badge.svg)](https://coveralls.io/github/jeantimex/react-webpack-boilerplate)
+[![Coverage Status](https://coveralls.io/repos/github/jeantimex/react-webpack-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/jeantimex/react-webpack-boilerplate?branch=master)
 
 This boilerplate helps you quickly setup React project, it includes the following features:
 
