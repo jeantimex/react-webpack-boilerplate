@@ -113,8 +113,7 @@ Lines        : 100% (  6/6  ) Threshold : 90%
 ================================================================================
 ```
 
-**HTML Report**:
-![Coverage Example](http://jinandsu.net/react-webpack-boilerplate/coverage-example.png)
+HTML and lcov reports can be found in the coverage folder.
 
 ## How to use this package
 Download or clone the package, then
