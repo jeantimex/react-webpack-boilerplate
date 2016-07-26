@@ -18,6 +18,9 @@ This boilerplate helps you quickly setup React project, it includes the followin
 - Coverage report [isparta](https://github.com/douglasduteil/isparta)
 - Test with [Enzyme](https://github.com/airbnb/enzyme) and [Sinon](http://sinonjs.org/)
 
+This project is based on [react-es6-webpack-karma-boilerplate](https://github.com/mvader/react-es6-webpack-karma-boilerplate). 
+
+
 ## React
 
 The following features are supported:
@@ -144,5 +147,3 @@ Remove dist and coverage folders
 ```
 npm run clean
 ```
-
-Author: Yong Su @ Box Inc.
