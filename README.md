@@ -100,7 +100,15 @@ describe('Testing', () => {
 
 Code coverage report is geneated by `istanbul`. `npm run coveralls` will submit the coverage report to coveralls.io.
 
-
+**Example**:
+```
+==================== Coverage / Threshold summary =============================
+Statements   : 100% ( 46/46 ) Threshold : 90%, 4 ignored
+Branches     : 100% ( 31/31 ) Threshold : 90%, 13 ignored
+Functions    : 100% ( 10/10 ) Threshold : 90%
+Lines        : 100% (  6/6  ) Threshold : 90%
+================================================================================
+```
 
 ## How to use this package
 Download or clone the package, then
