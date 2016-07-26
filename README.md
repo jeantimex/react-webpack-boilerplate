@@ -18,27 +18,119 @@ This boilerplate helps you quickly setup React project, it includes the followin
 - Coverage report [isparta](https://github.com/douglasduteil/isparta)
 - Test with [Enzyme](https://github.com/airbnb/enzyme) and [Sinon](http://sinonjs.org/)
 
-#### How to use
+## React
+
+The following features are supported:
+
+**Functional Component**
+```javascript
+const App = () => (
+    <div className='main-app'>
+        <h1>Hello, World!</h1>
+    </div>
+);
+```
+ 
+**Class Component**
+```javascript
+class App extends Component {
+    render() {
+        return (
+            <div className='main-app'>
+                <h1>Hello, World!</h1>
+            </div>
+        );
+    }
+}
+```
+ 
+**Class Properties**
+```javascript
+class Menu extends Component {
+    static propTypes = {
+        className: PropTypes.string,
+    };
+    ...
+}
+```
+
+**Export Default**
+```javascript
+export default App;
+```
+
+**Import .scss in Component**
+```javascript
+import './styles.scss';
+const App = () => <div />;
+```
+
+##Test##
+
+**Assert & Expect**
+```javascript
+import { assert, expect } from 'chai';
+...
+```
+
+**Enzyme**
+```javascript
+import { shallow } from 'enzyme';
+describe('Testing', () => {
+    it('should render the App', () => {
+        const wrapper = shallow(<App />);
+        ...
+    });
+});
+```
+
+**Sinon**
+```javascript
+const sandbox = sinon.sandbox.create();
+describe('Testing', () => {
+    afterEach(() => sandbox.verifyAndRestore());
+    it('should call the callback', () => {
+        const callback = sandbox.stub();
+        ...
+    });
+});
+```
+
+##Coverage Report
+
+Code coverage report is geneated by `istanbul`. `npm run coveralls` will submit the coverage report to coveralls.io.
+
+
+
+## How to use this package
+Download or clone the package, then
 ```
 npm install
 npm start
-# Open http://localhost:5000
 ```
+goto `http://localhost:5000` in your browser
 
-#### Linting
+## Linting
 ESLint with React linting options have been enabled.
 ```
 npm run lint
 ```
 
-#### Testing
+## Testing
 Start Karma test runner.
 ```
 npm run test
 ```
 
-#### Building
+## Building
 Build files for production
 ```
 npm run build
 ```
+
+## Clean
+Remove dist and coverage folders
+```
+npm run clean
+```
+
