@@ -6,6 +6,10 @@ module.exports = function (config) {
 
     browsers: ['PhantomJS'],
 
+    captureConsole: true,
+
+    colors: true,
+
     coverageReporter: {
       dir: 'coverage',
       reporters: [
@@ -27,9 +31,11 @@ module.exports = function (config) {
       'karma-chai-sinon',
       'karma-coverage',
       'karma-mocha',
+      'karma-mocha-reporter',
       'karma-phantomjs-launcher',
       'karma-sourcemap-loader',
       'karma-spec-reporter',
+      'karma-threshold-reporter',
       'karma-webpack',
     ],
 
@@ -39,7 +45,14 @@ module.exports = function (config) {
       'test/test.bundle.js': ['webpack', 'sourcemap'],
     },
 
-    reporters: ['spec', 'coverage'],
+    reporters: ['mocha', 'coverage', 'threshold'],
+
+    thresholdReporter: {
+        statements: 90,
+        branches: 90,
+        functions: 90,
+        lines: 90,
+    },
 
     webpack: webpackConfig,
 
