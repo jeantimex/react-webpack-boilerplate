@@ -6,7 +6,7 @@
 [![Dependency Status](https://david-dm.org/jeantimex/react-webpack-boilerplate.svg)](https://david-dm.org/jeantimex/react-webpack-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/jeantimex/react-webpack-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/jeantimex/react-webpack-boilerplate?branch=master)
 
-![React Webpack](./react-webpack-boilerplate.png)
+![React Webpack](http://jinandsu.net/react-webpack-boilerplate/react-webpack-boilerplate.png)
 
 This boilerplate helps you quickly setup React project, it includes the following features:
 
@@ -109,6 +109,9 @@ Functions    : 100% ( 10/10 ) Threshold : 90%
 Lines        : 100% (  6/6  ) Threshold : 90%
 ================================================================================
 ```
+
+**HTML Report**:
+![Coverage Example](http://jinandsu.net/react-webpack-boilerplate/coverage-example.png)
 
 ## How to use this package
 Download or clone the package, then
