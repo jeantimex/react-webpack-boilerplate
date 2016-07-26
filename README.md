@@ -119,7 +119,7 @@ Download or clone the package, then
 npm install
 npm start
 ```
-goto `http://localhost:5000` in your browser
+navigate to `http://localhost:5000` in your browser.
 
 ## Linting
 ESLint with React linting options have been enabled.
@@ -145,3 +145,4 @@ Remove dist and coverage folders
 npm run clean
 ```
 
+Author: Yong Su @ Box Inc.
