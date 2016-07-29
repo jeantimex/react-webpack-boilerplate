@@ -39,3 +39,4 @@ jspm_packages
 # Build output files
 build
 dist
+messages

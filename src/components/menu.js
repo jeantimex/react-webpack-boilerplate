@@ -1,9 +1,34 @@
 import React, { Component, PropTypes } from 'react';
+import {
+    defineMessages,
+    injectIntl,
+    intlShape,
+    FormattedMessage,
+} from 'react-intl';
 
 import './styles.scss';
 
-class Menu extends Component {
+const messages = defineMessages({
+    file: {
+        id: 'file',
+        defaultMessage: 'File',
+        description: 'The file menu item'
+    },
+    edit: {
+        id: 'edit',
+        defaultMessage: 'Edit',
+        description: 'The edit menu item'
+    },
+    help: {
+        id: 'help',
+        defaultMessage: 'Help',
+        description: 'The help menu item'
+    }
+});
+
+export class Menu extends Component {
     static propTypes = {
+        intl: intlShape.isRequired,
         className: PropTypes.string,
     };
 
@@ -16,14 +41,23 @@ class Menu extends Component {
     }
 
     render() {
+        const { formatMessage } = this.props.intl;
+
         return (
-            <ul className='main-menu'>
-                <li><a href='#'>File</a></li>
-                <li><a href='#'>Edit</a></li>
-                <li><a href='#'>Help</a></li>
-            </ul>
+            <div>
+                <FormattedMessage
+                    id='helloWorld'
+                    defaultMessage='Hello World!'
+                    description='greeting message'
+                />
+                <ul className='main-menu'>
+                    <li><a href='#'>{ formatMessage(messages.file) }</a></li>
+                    <li><a href='#'>{ formatMessage(messages.edit) }</a></li>
+                    <li><a href='#'>{ formatMessage(messages.help) }</a></li>
+                </ul>
+            </div>
         );
     }
 }
 
-export default Menu;
+export default injectIntl(Menu);
