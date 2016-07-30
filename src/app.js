@@ -4,18 +4,34 @@ import Menu from './components/menu';
 // Locale related
 import { addLocaleData, IntlProvider } from 'react-intl';
 
-// Locale data (date, number... formats)
-import fr from 'react-intl/locale-data/fr';
 // Custom locale messages
-import frMessages from '../i18n/fr-FR.json';
-
-import './styles.scss';
+import enMessages from '../i18n/en-US.json';
 
 // Add additional locale data
+import fr from 'react-intl/locale-data/fr';
+import frMessages from '../i18n/fr-FR.json';
 addLocaleData(fr);
 
+// Styles
+import './styles.scss';
+
+// We can update the locale and messages based on navigator.language
+// or your global settings
+let locale = 'en-US';
+let messages = enMessages;
+
+console.log(navigator.language);
+
+if (navigator.language === 'fr') {
+    locale = 'fr';
+    messages = frMessages;
+}
+
 const App = () => (
-    <IntlProvider locale='fr' messages={ frMessages }>
+    <IntlProvider
+        locale={ locale }
+        messages={ messages }
+    >
         <div className='mainApp'>
             <Menu />
         </div>
