@@ -20,8 +20,8 @@ module.exports = function (config) {
 
     files: [
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
-      './node_modules/intl/dist/intl.js',
-      'test/test.bundle.js',
+      './node_modules/intl/dist/Intl.js',
+      './test/test.bundle.js',
     ],
 
     // frameworks to use
