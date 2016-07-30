@@ -1,4 +1,4 @@
-var webpackConfig = require('./webpack.config.karma');
+const webpackConfig = require('./webpack.config.karma');
 
 module.exports = function (config) {
 
@@ -20,6 +20,7 @@ module.exports = function (config) {
 
     files: [
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
+      './node_modules/intl/dist/intl.js',
       'test/test.bundle.js',
     ],
 

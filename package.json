@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run clean && node_modules/.bin/webpack --config webpack.config.production.js",
-    "clean": "rm -rf dist coverage",
+    "clean": "rm -rf dist coverage messages",
     "coveralls": "npm run test && cat ./coverage/lcov/lcov.info | coveralls",
     "lint": "node_modules/.bin/eslint ./src",
     "start": "node server.js",
@@ -66,6 +66,7 @@
     "eslint-plugin-react": "^5.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "intl": "^1.2.4",
     "isparta-loader": "^2.0.0",
     "istanbul": "^0.4.4",
     "json-loader": "^0.5.4",

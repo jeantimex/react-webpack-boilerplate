@@ -12,23 +12,23 @@ const messages = defineMessages({
     file: {
         id: 'file',
         defaultMessage: 'File',
-        description: 'The file menu item'
+        description: 'The file menu item',
     },
     edit: {
         id: 'edit',
         defaultMessage: 'Edit',
-        description: 'The edit menu item'
+        description: 'The edit menu item',
     },
     help: {
         id: 'help',
         defaultMessage: 'Help',
-        description: 'The help menu item'
-    }
+        description: 'The help menu item',
+    },
 });
 
 export class Menu extends Component {
     static propTypes = {
-        intl: intlShape.isRequired,
+        intl: intlShape,
         className: PropTypes.string,
     };
 
@@ -44,13 +44,13 @@ export class Menu extends Component {
         const { formatMessage } = this.props.intl;
 
         return (
-            <div>
+            <div className='main-menu'>
                 <FormattedMessage
                     id='helloWorld'
                     defaultMessage='Hello World!'
                     description='greeting message'
                 />
-                <ul className='main-menu'>
+                <ul>
                     <li><a href='#'>{ formatMessage(messages.file) }</a></li>
                     <li><a href='#'>{ formatMessage(messages.edit) }</a></li>
                     <li><a href='#'>{ formatMessage(messages.help) }</a></li>

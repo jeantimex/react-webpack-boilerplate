@@ -2,11 +2,11 @@
 import path from 'path';
 // vendors
 import React from 'react';
-// project
-import Menu from 'components/menu';
-
 import { shallow } from 'enzyme';
 import { assert, expect } from 'chai';
+// project
+import { Menu } from 'components/menu';
+import { shallowWithIntl } from 'helpers/intl-enzyme-test-helper';
 
 const sandbox = sinon.sandbox.create();
 
@@ -16,7 +16,7 @@ describe('Testing', () => {
     });
 
     it('should render the Menu', () => {
-        const wrapper = shallow(
+        const wrapper = shallowWithIntl(
             <Menu />
         );
         assert.ok(wrapper.hasClass('main-menu'));
