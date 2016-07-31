@@ -1,5 +1,7 @@
+// Polyfills
+import './polyfills';
+
 // Vendor libraries
-import 'intl';
 import React from 'react';
 import { render } from 'react-dom';
 

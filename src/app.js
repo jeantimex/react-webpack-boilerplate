@@ -26,8 +26,6 @@ import './styles.scss';
 let locale;
 let messages;
 
-console.log(navigator.language);
-
 switch (navigator.language) {
     case 'fr':
         locale = 'fr';
