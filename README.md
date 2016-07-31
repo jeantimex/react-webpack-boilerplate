@@ -103,7 +103,7 @@ const App = () => (
 ```
 Note: You can have multiple locales and change the locale and messages based on navigator.language or your custom settings.
 
-## Test
+## Unit Test
 
 **Assert & Expect**
 ```javascript
