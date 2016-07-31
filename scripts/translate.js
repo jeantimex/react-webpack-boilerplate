@@ -8,6 +8,7 @@ const LANG_DIR = './i18n/';
 const LANGS = [
     'en-US',
     'fr-FR',
+    'zh-CN',
 ];
 
 // Aggregates the default messages that were extracted from the example app's
