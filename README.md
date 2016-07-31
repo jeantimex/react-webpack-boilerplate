@@ -10,13 +10,13 @@
 
 This boilerplate helps you quickly setup React project, it includes the following features:
 
-- [React](https://facebook.github.io/react/)
+- [React](https://facebook.github.io/react/) (ES6 with [Babel](https://babeljs.io/))
+- [React Intl](https://github.com/yahoo/react-intl) (v2.0.x)
 - [Webpack](https://webpack.github.io/) and Webpack dev server
-- ES6 with [Babel](https://babeljs.io/)
-- Sass loader
-- [Karma](https://karma-runner.github.io/1.0/index.html) + [Mocha](https://mochajs.org/)
+- [Sass loader](https://github.com/jtangelder/sass-loader)
+- [Karma](https://karma-runner.github.io/1.0/index.html) + [Mocha](https://mochajs.org/) + [Chai](http://chaijs.com/)
 - Coverage report [isparta](https://github.com/douglasduteil/isparta)
-- Test with [Enzyme](https://github.com/airbnb/enzyme) and [Sinon](http://sinonjs.org/)
+- Unit test with [Enzyme](https://github.com/airbnb/enzyme) and [Sinon](http://sinonjs.org/)
 
 This project is based on [react-es6-webpack-karma-boilerplate](https://github.com/mvader/react-es6-webpack-karma-boilerplate). 
 
@@ -68,7 +68,42 @@ import './styles.scss';
 const App = () => <div />;
 ```
 
-##Test##
+## Localization
+
+We use Yahoo's React Intl (v2.0) library to support localization. To support new language, follow the steps below:
+
+**Step 1**. Update `scripts/translate.js` and add new locale, e.g. `ja-JP`.
+```javascript
+const LANGS = [
+    'en-US',
+    'ja-JP',
+    'fr-FR',
+    'zh-CN',
+];
+```
+
+**Step 2**. Run `npm build` to generate the i18n JSON file `i18n/ja-JP.json`. Since it's a new locale, `ja-JP.json` contains the same ids and messages as in `en-US.json`. Translate the messages in `ja-JP.json`.
+
+**Step 3**. Update `src/app.js` and import the `ja-JP.json`.
+```javascript
+import ja from 'react-intl/locale-data/ja';
+import jaMessages from '../i18n/ja-JP.json';
+addLocaleData(ja);
+
+let locale = 'ja';
+let messages = jaMessages;
+const App = () => (
+    <IntlProvider
+        locale={ locale }
+        messages={ messages }
+    >
+    ...
+    </IntlProvider>
+);
+```
+Note: You can have multiple locales and change the locale and messages based on navigator.language or your custom settings.
+
+## Test
 
 **Assert & Expect**
 ```javascript
@@ -99,7 +134,7 @@ describe('Testing', () => {
 });
 ```
 
-##Coverage Report
+## Coverage Report
 
 Code coverage report is geneated by `istanbul`. `npm run coveralls` will submit the coverage report to coveralls.io.
 
