@@ -44,7 +44,8 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'isparta',
-        include: path.resolve('src/components'),
+        include: path.resolve('src'),
+        exclude: path.resolve('node_modules'),
       },
       {
         test: [/\.spec.js$/, /\.js$/],
@@ -53,6 +54,7 @@ module.exports = {
           path.resolve('test'),
           path.resolve('helpers'),
         ],
+        exclude: path.resolve('node_modules'),
       }
     ]
   },
