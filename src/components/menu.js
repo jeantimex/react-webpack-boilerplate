@@ -33,12 +33,12 @@ export class Menu extends Component {
         onSelect: PropTypes.func,
     };
 
-    static defaultProps = {
-        onSelect: () => {},
-    };
+    onSelectHandler = e => {
+        const { onSelect } = this.props;
 
-    onFileHandler = e => {
-        this.props.onSelect(e);
+        if (onSelect) {
+            onSelect(e);
+        }
     };
 
     render() {
@@ -53,15 +53,19 @@ export class Menu extends Component {
                 />
                 <ul>
                     <li>
-                        <a href='#' onClick={ this.onFileHandler }>
+                        <a href='#' onClick={ this.onSelectHandler }>
                             { formatMessage(messages.file) }
                         </a>
                     </li>
                     <li>
-                        <a href='#' onClick={ this.onEditHandler }></a>
+                        <a href='#' onClick={ this.onSelectHandler }>
+                            { formatMessage(messages.edit) }
+                        </a>
                     </li>
                     <li>
-                        <a href='#' onClick={ this.onHelpHanlder }></a>
+                        <a href='#' onClick={ this.onSelectHandler }>
+                            { formatMessage(messages.help) }
+                        </a>
                     </li>
                 </ul>
             </div>

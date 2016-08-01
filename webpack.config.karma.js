@@ -44,18 +44,14 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'isparta',
-        exclude: [
-          /\.spec.js$/,
-          path.resolve('node_modules'),
-          path.resolve('test/test.bundle.js'),
-        ],
+        include: path.resolve('src/components'),
       },
       {
-        test: /\.spec.js$/,
+        test: [/\.spec.js$/, /\.js$/],
         loader: 'babel',
-        exclude: [
-          path.resolve('src'),
-          path.resolve('node_modules'),
+        include: [
+          path.resolve('test'),
+          path.resolve('helpers'),
         ],
       }
     ]

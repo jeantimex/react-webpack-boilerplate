@@ -31,16 +31,25 @@ describe('Testing', () => {
         assert.equal(wrapper.find('div').props().className, 'main-menu');
     });
 
-    it('should set the onFileHandler to the link', () => {
+    it('should set the menu items properly', () => {
         const wrapper = shallowWithIntl(
             <Menu />
         );
         const fileItem = wrapper.find('a').at(0);
+        const editItem = wrapper.find('a').at(1);
+        const helpItem = wrapper.find('a').at(2);
+        const onSelectHandler = wrapper.instance().onSelectHandler;
 
-        assert.equal(fileItem.prop('onClick'), wrapper.instance().onFileHandler);
+        assert.equal(fileItem.text(), 'File');
+        assert.equal(editItem.text(), 'Edit');
+        assert.equal(helpItem.text(), 'Help');
+
+        assert.equal(fileItem.prop('onClick'), onSelectHandler);
+        assert.equal(editItem.prop('onClick'), onSelectHandler);
+        assert.equal(helpItem.prop('onClick'), onSelectHandler);
     });
 
-    it('should trigger onSelect when file link is clicked', () => {
+    it('should trigger onSelect when the file link is clicked', () => {
         const onSelect = sandbox.spy();
         const wrapper = shallowWithIntl(
             <Menu onSelect={ onSelect } />
@@ -58,7 +67,6 @@ describe('Testing', () => {
     it('vendors import should work', () => {
         expect(React).to.not.equal(null);
     });
-
 
     it('local import should exist', () => {
         assert.notEqual(null, Menu);
