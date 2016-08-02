@@ -35,59 +35,83 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 var path = require('path');
+var fs = require('fs');
 
-module.exports = {
+module.exports = function webpackConfig() {
 
-  // http://www.cnblogs.com/Answer1215/p/4312265.html
-  // The source map file will only be downloaded if you have source maps enabled and your dev tools open.
-  devtool: 'eval-source-map',
+  var locale = 'en-US';
+  var messagePath = path.resolve('i18n', (locale + '.json'));
+  var messageFile = fs.readFileSync(messagePath, 'utf8');
+  var messages = JSON.parse(messageFile);
 
-  // Entry point for the bundle.
-  entry: [
-    'webpack-dev-server/client?http://localhost:5000',
-    'webpack/hot/dev-server',
-    './src/index'
-  ],
+  locale = locale.substr(0, locale.indexOf('-'));
 
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel'],
-        exclude: /node_modules/
+  return {
+
+    // http://www.cnblogs.com/Answer1215/p/4312265.html
+    // The source map file will only be downloaded if you have source maps enabled and your dev tools open.
+    devtool: 'eval-source-map',
+
+    // Entry point for the bundle.
+    entry: [
+      'webpack-dev-server/client?http://localhost:5000',
+      'webpack/hot/dev-server',
+      './src/index'
+    ],
+
+    module: {
+      loaders: [
+        {
+          test: /\.jsx?$/,
+          loaders: ['react-hot', 'babel'],
+          exclude: /node_modules/
+        },
+        {
+          test: /\.json$/,
+          loader: 'json',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract(
+            'style',
+            'css?sourceMap!sass?sourceMap'
+          )
+        }
+      ]
+    },
+
+    // If you pass an array - the modules are loaded on startup. The last one is exported.
+    output: {
+      path: __dirname,
+      filename: 'bundle.js',
+      publicPath: '/static/'
+    },
+
+    plugins: [
+      new ExtractTextPlugin('styles.css'),
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin(),
+      new webpack.DefinePlugin({
+        __I18N__: JSON.stringify({
+          locale,
+          messages,
+        }),
+        'process.env': {
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        },
+      }),
+    ],
+
+    // Array of file extensions used to resolve modules.
+    resolve: {
+      extensions: ['', '.js', '.jsx', '.css', '.scss'],
+      alias: {
+        components: path.join(__dirname, 'src/components'),
+        'locale-data': 'react-intl/locale-data/' + locale,
       },
-      {
-        test: /\.json$/,
-        loader: 'json',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css?sourceMap!sass?sourceMap'
-        )
-      }
-    ]
-  },
+    },
 
-  // If you pass an array - the modules are loaded on startup. The last one is exported.
-  output: {
-    path: __dirname,
-    filename: 'bundle.js',
-    publicPath: '/static/'
-  },
-
-  plugins: [
-    new ExtractTextPlugin('styles.css'),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
-
-  // Array of file extensions used to resolve modules.
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.scss'],
-    root: path.resolve(path.join(__dirname, 'src')),
-  },
+  };
 
 };
