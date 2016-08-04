@@ -60,9 +60,12 @@ module.exports = {
   },
 
   resolve: {
-    alias: { 'sinon': 'sinon/pkg/sinon' },
+    alias: {
+      sinon: 'sinon/pkg/sinon',
+      components: path.join(__dirname, 'src/components'),
+      helpers: path.join(__dirname, 'helpers'),
+    },
     extensions: ['', '.css', '.js', '.jsx', '.json', '.scss'],
-    modulesDirectories: ['', 'src', 'node_modules'],
   },
 
 };

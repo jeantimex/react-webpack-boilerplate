@@ -16,6 +16,9 @@
     "modules": true,
     "jsx": true
   },
+  "globals": {
+    "__I18N__": false
+  },
   "rules": {
     "indent": [2, 4, {"SwitchCase": 1}],
     "react/jsx-curly-spacing": 0,
@@ -24,5 +27,8 @@
     "jsx-quotes": [2, 'prefer-single'],
     "max-len": [2, 120],
     "no-underscore-dangle": ['error', { 'allow': ['__Rewire__', '__ResetDependency__'] }]
+  },
+  "settings": {
+    "import/resolver": "webpack"
   }
 }
