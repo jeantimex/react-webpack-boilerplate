@@ -4,9 +4,10 @@
   "description": "React webpack boilerplate.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:bundle && npm run build:langs",
-    "build:bundle": "npm run clean && node_modules/.bin/webpack --config webpack.config.production.js",
+    "release": "npm run clean && npm run build:langs && npm run build:bundle",
     "build:langs": "babel-node scripts/translate.js",
+    "build:bundle": "./scripts/release.js",
+    "build": "./node_modules/.bin/webpack",
     "clean": "rm -rf dist coverage messages",
     "coveralls": "npm run test && cat ./coverage/lcov/lcov.info | coveralls",
     "lint": "node_modules/.bin/eslint ./src",
@@ -43,6 +44,7 @@
     "react-intl": "^2.0.1"
   },
   "devDependencies": {
+    "async": "^2.0.1",
     "autoprefixer": "^6.3.7",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.9.1",
