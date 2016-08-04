@@ -70,9 +70,9 @@ const App = () => <div />;
 
 ## Localization
 
-We use Yahoo's React Intl (v2.0) library to support localization. To support new language, follow the steps below:
+We use Yahoo's React Intl (v2.0) library to support localization.
 
-**Step 1**. Update `scripts/translate.js` and add new locale, e.g. `ja-JP`.
+**1**. To support a new locale, update `scripts/translate.js` and add the new locale to the list, e.g. `ja-JP`.
 ```javascript
 const LANGS = [
     'en-US',
@@ -82,26 +82,22 @@ const LANGS = [
 ];
 ```
 
-**Step 2**. Run `npm build` to generate the i18n JSON file `i18n/ja-JP.json`. Since it's a new locale, `ja-JP.json` contains the same ids and messages as in `en-US.json`. Translate the messages in `ja-JP.json`.
-
-**Step 3**. Update `src/app.js` and import the `ja-JP.json`.
-```javascript
-import ja from 'react-intl/locale-data/ja';
-import jaMessages from '../i18n/ja-JP.json';
-addLocaleData(ja);
-
-let locale = 'ja';
-let messages = jaMessages;
-const App = () => (
-    <IntlProvider
-        locale={ locale }
-        messages={ messages }
-    >
-    ...
-    </IntlProvider>
-);
+**2**. Specify a `LOCALE` env var in `npm start` to debug for a specific locale:
+```bash
+$ LOCALE=ja-JP npm start
 ```
-Note: You can have multiple locales and change the locale and messages based on navigator.language or your custom settings.
+
+You can also build the bundle.js for a specific locale:
+```bash
+$ LOCALE=ja-JP npm run build
+```
+This will output the Japanese bundle.js in `dist/ja-JP` folder. Note, if you don't specify `LOCALE`, default is `en-US`.
+
+**3**. To build bundle.js for all languages:
+```bash
+$ npm run release
+```
+This will output each supported language bundle.js along with the style sheets in `dist/{locale}` folder.
 
 ## Unit Test
 
