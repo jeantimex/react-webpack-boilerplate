@@ -148,32 +148,47 @@ HTML and lcov reports can be found in the coverage folder.
 
 ## How to use this package
 Download or clone the package, then
-```
-npm install
-npm start
+```bash
+$ npm install
+$ npm start
 ```
 navigate to `http://localhost:5000` in your browser.
 
+## Hot-load for a lanuage
+```bash
+$ LOCALE=en-US npm start
+```
+
 ## Linting
 ESLint with React linting options have been enabled.
-```
-npm run lint
+```bash
+$ npm run lint
 ```
 
-## Testing
+## Unit testing
 Start Karma test runner.
-```
-npm run test
+```bash
+$ npm run test
 ```
 
-## Building
+## Build bundle.js
 Build files for production
+```bash
+$ npm run build
 ```
-npm run build
+
+## Build bundle.js for a language
+```bash
+$ LOCALE=en-US npm run build
+```
+
+## Build all language bundles
+```bash
+$ npm run release
 ```
 
 ## Clean
 Remove dist and coverage folders
 ```
-npm run clean
+$ npm run clean
 ```
