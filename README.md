@@ -72,31 +72,25 @@ const App = () => <div />;
 
 We use Yahoo's React Intl (v2.0) library to support localization.
 
-**1**. To support a new locale, update `scripts/translate.js` and add the new locale to the list, e.g. `ja-JP`.
+**1**. To support a new locale, update `scripts/translate.js` and add the new locale to the list, e.g. `en-US`.
 ```javascript
 const LANGS = [
     'en-US',
-    'ja-JP',
     'fr-FR',
     'zh-CN',
 ];
 ```
-Run:
-```bash
-$ npm run build
-```
-This will generate the the message files contain all the locale tokens. Do not skip this step.
 
 **2**. Specify a `LOCALE` env var in `npm start` to debug for a specific locale:
 ```bash
-$ LOCALE=ja-JP npm start
+$ LOCALE=en-US npm start
 ```
 
 You can also build the bundle.js for a specific locale:
 ```bash
-$ LOCALE=ja-JP npm run build
+$ LOCALE=en-US npm run build
 ```
-This will output the Japanese bundle.js in `dist/ja-JP` folder. Note, if you don't specify `LOCALE`, default is `en-US`.
+This will output the English bundle.js in `dist/en-US` folder. Note, if you don't specify `LOCALE`, default is `en-US`.
 
 **3**. To build bundle.js for all languages:
 ```bash
