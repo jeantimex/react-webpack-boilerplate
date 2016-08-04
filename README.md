@@ -81,6 +81,11 @@ const LANGS = [
     'zh-CN',
 ];
 ```
+Run:
+```bash
+$ npm run build
+```
+This will generate the the message files contain all the locale tokens. Do not skip this step.
 
 **2**. Specify a `LOCALE` env var in `npm start` to debug for a specific locale:
 ```bash
