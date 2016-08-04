@@ -12,7 +12,7 @@ const languages = readdirSync(i18nPath)
     .map(fileName => fileName.slice(0, fileName.indexOf('.')));
 
 const queue = async.queue((language, callback) => {
-    exec('npm run build', {
+    exec('npm run webpack', {
         cwd: join(__dirname, '..'),
         env: Object.assign(process.env, {
             LOCALE: language,

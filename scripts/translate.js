@@ -5,6 +5,8 @@ import Translator from './lib/translator';
 
 const MESSAGES_PATTERN = './messages/**/*.json';
 const LANG_DIR = './i18n/';
+
+// List supported languages for bundle here
 const LANGS = [
     'en-US',
     'fr-FR',
