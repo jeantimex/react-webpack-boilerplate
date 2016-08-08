@@ -60,7 +60,7 @@ module.exports = function webpackConfig(locale) {
           exclude: /node_modules/
         },
         {
-          test: /\.scss$/,
+          test: /\.s?css$/,
           loader: ExtractTextPlugin.extract(
             'style',
             'css?sourceMap!sass?sourceMap'
