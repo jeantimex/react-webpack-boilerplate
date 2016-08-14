@@ -21,7 +21,7 @@ This boilerplate helps you quickly setup React project, it includes the followin
 This project is based on [react-es6-webpack-karma-boilerplate](https://github.com/mvader/react-es6-webpack-karma-boilerplate). 
 
 
-## React
+##React
 
 The following features are supported:
 
