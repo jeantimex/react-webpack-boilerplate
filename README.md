@@ -72,14 +72,7 @@ const App = () => <div />;
 
 We use Yahoo's React Intl (v2.0) library to support localization.
 
-**1**. To support a new locale, update `scripts/translate.js` and add the new locale to the list, e.g. `en-US`.
-```javascript
-const LANGS = [
-    'en-US',
-    'fr-FR',
-    'zh-CN',
-];
-```
+**1**. To support a new locale, e.g. ja-JP, copy `i18n/en-US.properties` to `i18n/ja-JP.properties`, translate the locale messages.
 
 **2**. Specify a `LOCALE` env var in `npm start` to debug for a specific locale:
 ```bash
