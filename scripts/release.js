@@ -8,11 +8,11 @@ const async = require('async');
 const i18nPath = join(__dirname, '..', 'i18n');
 
 const languages = readdirSync(i18nPath)
-    .filter((fileName) => extname(fileName) === '.json')
+    .filter((fileName) => extname(fileName) === '.properties')
     .map(fileName => fileName.slice(0, fileName.indexOf('.')));
 
 const queue = async.queue((language, callback) => {
-    exec('npm run webpack', {
+    exec('npm run build', {
         cwd: join(__dirname, '..'),
         env: Object.assign(process.env, {
             LOCALE: language,

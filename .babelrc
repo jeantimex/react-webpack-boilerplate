@@ -3,9 +3,10 @@
   "plugins": [
     "transform-class-properties",
     "transform-export-extensions",
-    ["react-intl", {
-      "messagesDir": "./messages/",
-      "enforceDescriptions": true
+    ["react-intl-to-properties", {
+      "enforceDescriptions": true,
+      "fileName": "en-US",
+      "messagesDir": "./i18n/"
     }]
   ]
 }

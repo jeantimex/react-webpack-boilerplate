@@ -33,15 +33,14 @@
 
 /* eslint-disable no-var */
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var propsParser = require('properties-parser');
 var webpack = require('webpack');
 var path = require('path');
-var fs = require('fs');
 
 module.exports = function webpackConfig(locale) {
 
-  var messagePath = path.resolve('i18n', (locale + '.json'));
-  var messageFile = fs.readFileSync(messagePath, 'utf8');
-  var messages = JSON.parse(messageFile);
+  var messagePath = path.resolve('i18n', (locale + '.properties'));
+  var messages = propsParser.read(messagePath);
 
   locale = locale.substr(0, locale.indexOf('-'));
 

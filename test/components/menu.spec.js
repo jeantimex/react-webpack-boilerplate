@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 import { assert, expect } from 'chai';
 // project
 import { Menu } from 'components/menu';
-import { shallowWithIntl, mountWithIntl } from 'helpers/intl-enzyme-test-helper';
+import { shallowWithIntl, mountWithIntl } from 'scripts/intl-helper';
 
 const sandbox = sinon.sandbox.create();
 
