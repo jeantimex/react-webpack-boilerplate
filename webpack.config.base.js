@@ -60,10 +60,15 @@ module.exports = function webpackConfig(locale) {
         },
         {
           test: /\.s?css$/,
-          loader: ExtractTextPlugin.extract(
-            'style',
-            'css?sourceMap!sass?sourceMap'
-          )
+          loader: ExtractTextPlugin.extract({
+            loader: [{
+              loader: 'css-loader'
+            }, {
+              loader: 'sass-loader'
+            }],
+            fallback: 'style-loader'
+            }
+          })
         }
       ]
     },
