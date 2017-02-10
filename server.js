@@ -9,7 +9,7 @@ var port = 5000;
 // Settings for dev server
 var babelLoader = {
     test: /\.jsx?$/,
-    loaders: ['react-hot', 'babel'],
+    use: ['babel-loader'],
     exclude: /node_modules/,
 };
 
@@ -20,10 +20,11 @@ config.entry = config.entry.concat([
     `webpack-dev-server/client?http://localhost:${port}`,
     'webpack/hot/dev-server'
 ]);
-config.module.loaders.push(babelLoader);
+config.module.rules.push(babelLoader);
 config.output.path = __dirname;
 config.plugins = config.plugins.concat([
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
 ]);
 
 new WebpackDevServer(webpack(config), {

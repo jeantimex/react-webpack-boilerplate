@@ -48,7 +48,7 @@ export class Menu extends Component {
             <div className='main-menu'>
                 <FormattedMessage
                     id='helloWorld'
-                    defaultMessage='Hello World!'
+                    defaultMessage='Hello World!!'
                     description='greeting message'
                 />
                 <ul>

@@ -52,22 +52,12 @@ module.exports = function webpackConfig(locale) {
     ],
 
     module: {
-      loaders: [
-        {
-          test: /\.json$/,
-          loader: 'json',
-          exclude: /node_modules/
-        },
+      rules: [
         {
           test: /\.s?css$/,
-          loader: ExtractTextPlugin.extract({
-            loader: [{
-              loader: 'css-loader'
-            }, {
-              loader: 'sass-loader'
-            }],
+          use: ExtractTextPlugin.extract({
+            use: 'css-loader!sass-loader',
             fallback: 'style-loader'
-            }
           })
         }
       ]
@@ -80,7 +70,7 @@ module.exports = function webpackConfig(locale) {
 
     plugins: [
       new ExtractTextPlugin('styles.css'),
-      new webpack.NoErrorsPlugin(),
+      new webpack.NoEmitOnErrorsPlugin(),
       new webpack.DefinePlugin({
         __I18N__: JSON.stringify({
           locale,
@@ -94,7 +84,7 @@ module.exports = function webpackConfig(locale) {
 
     // Array of file extensions used to resolve modules.
     resolve: {
-      extensions: ['', '.js', '.jsx', '.css', '.scss'],
+      extensions: ['.js', '.jsx', '.css', '.scss'],
       alias: {
         components: path.join(__dirname, 'src/components'),
         'locale-data': 'react-intl/locale-data/' + locale,
